@@ -7,19 +7,50 @@
     <title>Document</title>
 </head>
 <body>
-
-
+<h1>Crystal Collector!</h1>
+<h2>Rules:</h2>
+<!-- Rules Div -->
+<div>  
+<p>You will be given and random number to start</p>
+<p>Click on a crystal to increase your score</p>
+<p>You win the game by matching the score to the number picked</p>
+<p>The values of the crystals will be hidden from you</p>
+<p>Good Luck!</p>
+</div>
+<!-- Win Loss Text -->
+<div>
+    <p id = "wins-text"></p>
+    <p id = "loss-text"></p>
+</div>
+<!-- random number div -->
+<div>
+    <p id = "random-number-text"></p>
+</div>
+<div>
+    <img id="monk" src = "assets/images/monk.png">
+    <img id= "bard" src = "assets/images/bc.png">
+    <img id= "wmage" src = "assets/images/wmc.png">
+    <img id= "rmage" src = "assets/images/rmc.png">
+</div>
 
 <script>
-computerChoice = Math.floor(Math.random() * 119) +1; //generates the main number to guess to
+computerChoice = Math.floor(Math.random() *119) +1; //generates the main number to guess to
 console.log (computerChoice)
 
-//generates the values behind the crystals
-rock1= Math.floor(Math.random() * 11) +1 
-console.log (rock1);
-rock2= Math.floor(Math.random() * 11) +1
 
-rock3= Math.floor(Math.random() * 11) +1
+//generates the values behind the crystals
+monk= Math.floor(Math.random() * 11) +1 
+console.log (monk);
+bard= Math.floor(Math.random() * 11) +1
+console.log(bard)
+wmage= Math.floor(Math.random() * 11) +1
+console.log(wmage)
+rmage= Math.floor(Math.random() * 11) +1
+console.log(rmage)
+
 </script>
 </body>
 </html>
+
+
+// <!-- can you make the random numbers into an array and give them all the same class? -->
