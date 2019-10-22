@@ -43,7 +43,7 @@
       var win = 0;
       var loss = 0;
       var computerChoice;
-      var computerChoice = Math.floor(Math.random() * 120) + 19; //generates the main number to guess to
+      var computerChoice = Math.floor(Math.random() * 101) + 19; //generates the main number to guess to
       var monk;
       var bard;
       var wmage;
@@ -66,40 +66,64 @@
       //assigns class to an onclick function that adds to the count
       $("#monk").on("click", function() {
         count = monk + count;
+        decide() 
         console.log("monk"+count);
         $("#count-total").text(count);
       });
 
       $("#bard").on("click", function() {
         count = bard + count;
+        decide() 
         console.log("bard" + count)
         $("#count-total").text(count);
       });
       $("#wmage").on("click", function() {
         count = wmage + count;
+        decide() 
         console.log("wmage" + count)
         $("#count-total").text(count);
       });
       $("#rmage").on("click", function() {
         count = rmage + count;
+        decide() 
         console.log("rmage" + count)
         $("#count-total").text(count);
       });
       console.log(count);
-      if (count > computerChoice) {
-        newrocks();
-        count = 0;
-        loss++;
-      } else if (count === computerChoice) {
-        win++;
-      }
 
+
+function winGame() {
+  count == 0
+  newrocks()
+  win ++
+}
+function loseGame(){
+  count == 0
+  newrocks()
+  loss++
+}
+
+function decide() {
+if (count > computerChoice){
+  loseGame()
+  console.log("loss")
+  count = 0
+}
+else if (count === computerChoice){
+  winGame()
+  }
       $("#count-total").text(count);
       $("#random-number-text").text(computerChoice);
       $("#win-text").text(win);
       $("#loss-text").text(loss);
       console.log("wins" + win);
+
+}
     </script>
   </body>
 </html>
-<!-- can you make the random numbers into an array and give them all the same class? -->
+
+<!-- Reset Function 
+        -wins function
+        -loss function
+ -->
