@@ -1,0 +1,15 @@
+body{
+    background-color: rgb(255, 239, 239);
+}
+h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px
+}
+#rules{
+    font-family: 'Modak', cursive;
+    font-size: 30px
+}
+#winslosses{
+    font-family: 'Play', sans-serif;
+    font-size: large;
+}
