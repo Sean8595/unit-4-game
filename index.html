@@ -1,56 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h1>Crystal Collector!</h1>
-<h2>Rules:</h2>
-<!-- Rules Div -->
-<div>  
-<p>You will be given and random number to start</p>
-<p>Click on a crystal to increase your score</p>
-<p>You win the game by matching the score to the number picked</p>
-<p>The values of the crystals will be hidden from you</p>
-<p>Good Luck!</p>
-</div>
-<!-- Win Loss Text -->
-<div>
-    <p id = "wins-text"></p>
-    <p id = "loss-text"></p>
-</div>
-<!-- random number div -->
-<div>
-    <p id = "random-number-text"></p>
-</div>
-<div>
-    <img id="monk" src = "assets/images/monk.png">
-    <img id= "bard" src = "assets/images/bc.png">
-    <img id= "wmage" src = "assets/images/wmc.png">
-    <img id= "rmage" src = "assets/images/rmc.png">
-</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Crystal game</title>
+  </head>
+  <body>
+    <h1>Crystal Collector!</h1>
+    <h2>Rules:</h2>
+    <!-- Rules Div -->
+    <div>
+      <p>You will be given and random number to start</p>
+      <p>Click on a crystal to increase your score</p>
+      <p>You win the game by matching the score to the number picked</p>
+      <p>The values of the crystals will be hidden from you</p>
+      <p>Good Luck!</p>
+    </div>
+    <!-- Win Loss Text -->
+    <div>
+      <p>Wins:<span id="win-text"></span></p>
+      <p>Losses: <span id="loss-text"></span></p>
+    </div>
+    <!-- random number div -->
+    <div>
+    <p>Your Total: <span id="count-total"></span></p>
+      <p>Random Number to guess: <span id="random-number-text"></span></p>
+    </div>
+    <!-- Images Div -->
+    <div>
+      <img id="monk" src="assets/images/monk.png" />
+      <img id="bard" src="assets/images/bc.png" />
+      <img id="wmage" src="assets/images/wmc.png" />
+      <img id="rmage" src="assets/images/rmc.png" />
+    </div>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <script>
+      var count = 0;
+      var win = 0;
+      var loss = 0;
+      var computerChoice;
+      var computerChoice = Math.floor(Math.random() * 119) + 1; //generates the main number to guess to
+          function newrocks(){
+            console.log(computerChoice);
 
-<script>
-computerChoice = Math.floor(Math.random() *119) +1; //generates the main number to guess to
-console.log (computerChoice)
+            //generates the values behind the crystals
+            
+            monk = Math.floor(Math.random() * 11) + 1;
+            console.log(monk);
+            bard = Math.floor(Math.random() * 11) + 1;
+            console.log(bard);
+            wmage = Math.floor(Math.random() * 11) + 1;
+            console.log(wmage);
+            rmage = Math.floor(Math.random() * 11) + 1;
+            console.log(rmage);
+            }
+      //assigns class to an onclick function that adds to the count
+            $("#monk").on("click", function(){
+              count = monk + count;
+            });
 
-
-//generates the values behind the crystals
-monk= Math.floor(Math.random() * 11) +1 
-console.log (monk);
-bard= Math.floor(Math.random() * 11) +1
-console.log(bard)
-wmage= Math.floor(Math.random() * 11) +1
-console.log(wmage)
-rmage= Math.floor(Math.random() * 11) +1
-console.log(rmage)
-
-</script>
-</body>
+            $("#bard").on("click", function(){
+                count = bard + count;
+            });
+            $("#wmage").on("click", function(){
+                count = wmage + count;
+            });
+            $("rmage").on("click", function(){
+                count = rmage+ count;
+            });
+    console.log(count)
+          if(count > computerChoice){
+      newrocks()
+      count = 0
+          }
+    $("#count-total").text(count)
+    $("#random-number-text").text(computerChoice)
+    $("#win-text").text(win)
+    $("#loss-text").text(loss)
+      console.log("wins" + win)
+    </script>
+  </body>
 </html>
-
-
-// <!-- can you make the random numbers into an array and give them all the same class? -->
+<!-- can you make the random numbers into an array and give them all the same class? -->
