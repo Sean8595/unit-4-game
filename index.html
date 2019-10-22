@@ -24,7 +24,7 @@
     </div>
     <!-- random number div -->
     <div>
-    <p>Your Total: <span id="count-total"></span></p>
+      <p>Your Total: <span id="count-total"></span></p>
       <p>Random Number to guess: <span id="random-number-text"></span></p>
     </div>
     <!-- Images Div -->
@@ -43,45 +43,62 @@
       var win = 0;
       var loss = 0;
       var computerChoice;
-      var computerChoice = Math.floor(Math.random() * 119) + 1; //generates the main number to guess to
-          function newrocks(){
-            console.log(computerChoice);
+      var computerChoice = Math.floor(Math.random() * 120) + 19; //generates the main number to guess to
+      var monk;
+      var bard;
+      var wmage;
+      var rmage;
+      function newrocks() {
+        console.log(computerChoice);
 
-            //generates the values behind the crystals
-            
-            monk = Math.floor(Math.random() * 11) + 1;
-            console.log(monk);
-            bard = Math.floor(Math.random() * 11) + 1;
-            console.log(bard);
-            wmage = Math.floor(Math.random() * 11) + 1;
-            console.log(wmage);
-            rmage = Math.floor(Math.random() * 11) + 1;
-            console.log(rmage);
-            }
+        //generates the values behind the crystals
+
+        monk = Math.floor(Math.random() * 11) + 1;
+        console.log(monk);
+        bard = Math.floor(Math.random() * 11) + 1;
+        console.log(bard);
+        wmage = Math.floor(Math.random() * 11) + 1;
+        console.log(wmage);
+        rmage = Math.floor(Math.random() * 11) + 1;
+        console.log(rmage);
+      }
+      newrocks();
       //assigns class to an onclick function that adds to the count
-            $("#monk").on("click", function(){
-              count = monk + count;
-            });
+      $("#monk").on("click", function() {
+        count = monk + count;
+        console.log("monk"+count);
+        $("#count-total").text(count);
+      });
 
-            $("#bard").on("click", function(){
-                count = bard + count;
-            });
-            $("#wmage").on("click", function(){
-                count = wmage + count;
-            });
-            $("rmage").on("click", function(){
-                count = rmage+ count;
-            });
-    console.log(count)
-          if(count > computerChoice){
-      newrocks()
-      count = 0
-          }
-    $("#count-total").text(count)
-    $("#random-number-text").text(computerChoice)
-    $("#win-text").text(win)
-    $("#loss-text").text(loss)
-      console.log("wins" + win)
+      $("#bard").on("click", function() {
+        count = bard + count;
+        console.log("bard" + count)
+        $("#count-total").text(count);
+      });
+      $("#wmage").on("click", function() {
+        count = wmage + count;
+        console.log("wmage" + count)
+        $("#count-total").text(count);
+      });
+      $("#rmage").on("click", function() {
+        count = rmage + count;
+        console.log("rmage" + count)
+        $("#count-total").text(count);
+      });
+      console.log(count);
+      if (count > computerChoice) {
+        newrocks();
+        count = 0;
+        loss++;
+      } else if (count === computerChoice) {
+        win++;
+      }
+
+      $("#count-total").text(count);
+      $("#random-number-text").text(computerChoice);
+      $("#win-text").text(win);
+      $("#loss-text").text(loss);
+      console.log("wins" + win);
     </script>
   </body>
 </html>
